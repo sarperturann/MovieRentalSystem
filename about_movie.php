@@ -35,8 +35,8 @@
 		<h3 class="title"><?php echo $movie['movie_name']; ?></h3>	
 			<div class = "image">
 				<img id = "pic" src="<?php echo $movie['image']; ?>" alt=""/> 
-				<p class="p-link" style="font-size:15px"><b>Cast : </b><?php echo $movie_actors['cast']; ?></p>
-				<p class="p-link" style="font-size:15px"><b>Release Date : </b><?php $movie['movie_production_year']; ?></p>
+				<p class="p-link" style="font-size:15px"><b>Cast : </b><?php echo $movie_actors['movie_actor']; ?></p>
+				<p class="p-link" style="font-size:15px"><b>Movie Production Year: </b><?php $movie['movie_production_year']; ?></p>
 			</div>
 			
 			<div class="clear"></div>		
