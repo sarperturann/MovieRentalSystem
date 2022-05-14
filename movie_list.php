@@ -33,7 +33,7 @@
 			<h2 class= "title" style="color:#000;">New Movies</h2>
 			<?php
         
-          	$qry2 = mysqli_query($con,"select * from  tbl_movie where status='0' order by rand()");
+          	$qry2 = mysqli_query($con,"select * from movie order by rand()");
 						
           	while($m = mysqli_fetch_array($qry2))
                 {

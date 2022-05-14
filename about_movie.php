@@ -1,5 +1,5 @@
 <?php include('navbar.php');
-	$qry2=mysqli_query($con,"select * from tbl_movie where movie_id='".$_GET['id']."'");
+	$qry2=mysqli_query($con,"select * from movie where movieID='".$_GET['id']."'");
 	$movie=mysqli_fetch_array($qry2);
 	?>
 <!DOCTYPE html>
@@ -35,10 +35,8 @@
 		<h3 class="title"><?php echo $movie['movie_name']; ?></h3>	
 			<div class = "image">
 				<img id = "pic" src="<?php echo $movie['image']; ?>" alt=""/> 
-				<p class="p-link" style="font-size:15px"><b>Cast : </b><?php echo $movie['cast']; ?></p>
-				<p class="p-link" style="font-size:15px"><b>Release Date : </b><?php echo date('d-M-Y',strtotime($movie['release_date'])); ?></p>
-				<p style="font-size:15px"><?php echo $movie['desc']; ?></p>
-				<a href="<?php echo $movie['video_url']; ?>" target="_blank" class="watch_but" style="text-decoration:none;">Watch Trailer</a>
+				<p class="p-link" style="font-size:15px"><b>Cast : </b><?php echo $movie_actors['cast']; ?></p>
+				<p class="p-link" style="font-size:15px"><b>Release Date : </b><?php $movie['movie_production_year']; ?></p>
 			</div>
 			
 			<div class="clear"></div>		
