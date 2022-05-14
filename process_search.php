@@ -32,12 +32,12 @@
 	<div class="container">	
 		<h2 class= "title" style="color:#000;">Search Result for ' <?php echo $_POST['search'] ?> ' </h2>
 				
-			<?php $qry2=mysqli_query($con,"select DISTINCT movie_name,movie_id,image,cast from tbl_movie where movie_name='".$_POST['search']."'");			
+			<?php $qry2=mysqli_query($con,"select DISTINCT movie_name,movie_id,image,from movie where movie_name='".$_POST['search']."'");			
 				while($m = mysqli_fetch_array($qry2))
 				{ ?>
 							<div class = "image">
-								<div><a href="about.php?id=<?php echo $m['movie_id'];?>"><img id = "pic" src="<?php echo $m['image'];?>"></a>
-								<a href="about.php?id=<?php echo $m['movie_id'];?>" ><?php echo $m['movie_name'];?></a></div>
+								<div><a href="about_movie.php?id=<?php echo $m['movieID'];?>"><img id = "pic" src="<?php echo $m['image'];?>"></a>
+								<a href="about_movie.php?id=<?php echo $m['movieID'];?>" ><?php echo $m['movie_name'];?></a></div>
 							</div>
 					
 				<?php } ?>

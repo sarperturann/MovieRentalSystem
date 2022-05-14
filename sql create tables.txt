@@ -1,0 +1,218 @@
+DROP TABLE IF EXISTS user_tbl; 
+CREATE TABLE user_tbl(
+userID VARCHAR(200),
+username VARCHAR(200),
+password VARCHAR(200),
+email_address VARCHAR(200),
+PRIMARY KEY(userID)
+);
+
+DROP TABLE IF EXISTS employee; 
+CREATE TABLE employee(
+userID VARCHAR(200),
+movie_to_add VARCHAR(200),
+PRIMARY KEY(userID), 
+FOREIGN KEY (userID) REFERENCES user_tbl(userID) ON DELETE CASCADE
+);
+
+DROP TABLE IF EXISTS customer; 
+CREATE TABLE customer(
+userID VARCHAR(200),
+PRIMARY KEY(userID), 
+FOREIGN KEY (userID) REFERENCES user_tbl(userID) ON DELETE CASCADE
+);
+
+DROP TABLE IF EXISTS wallet; 
+CREATE TABLE wallet(
+userID VARCHAR(200),
+balance INT,
+PRIMARY KEY(userID, balance), 
+FOREIGN KEY (userID) REFERENCES customer(userID)ON DELETE CASCADE
+);
+
+DROP TABLE IF EXISTS list_user; 
+CREATE TABLE list_user(
+listID VARCHAR(200),
+list_name VARCHAR(200),
+list_description VARCHAR(200),
+list_count INT,
+userID VARCHAR(200),
+PRIMARY KEY(listID), 
+FOREIGN KEY (userID) REFERENCES customer(userID) ON DELETE 
+CASCADE
+);
+
+DROP TABLE IF EXISTS movie_request; 
+CREATE TABLE movie_request (
+movie_requestID VARCHAR(200),
+requested_movie_name VARCHAR(200),
+userID VARCHAR(200),
+PRIMARY KEY(movie_requestID), 
+FOREIGN KEY (userID) REFERENCES customer(userID) ON DELETE 
+CASCADE
+);
+
+DROP TABLE IF EXISTS movie_recomendation; 
+CREATE TABLE movie_recomendation (
+recommendationID VARCHAR(200),
+recommendation_date VARCHAR(200),
+recommended_friendID VARCHAR(200),
+PRIMARY KEY(recommendationID)
+);
+
+DROP TABLE IF EXISTS purchase; 
+CREATE TABLE purchase(
+purchase_ID VARCHAR(200),
+purchase_date VARCHAR(200),
+purchase_expiration_date VARCHAR(200),
+purchase_price INT,
+PRIMARY KEY(purchase_ID)
+);
+
+DROP TABLE IF EXISTS movie_review; 
+CREATE TABLE movie_review (
+reviewID VARCHAR(200),
+review_date VARCHAR(200),
+review_rating VARCHAR(200),
+review_comment VARCHAR(200),
+PRIMARY KEY(reviewID) 
+);
+
+DROP TABLE IF EXISTS movie; 
+CREATE TABLE movie(
+movieID VARCHAR(200),
+movie_name VARCHAR(200),
+movie_production_year VARCHAR(200),
+image VARCHAR(200),
+userID VARCHAR(200),
+PRIMARY KEY(movieID),
+FOREIGN KEY (userID) REFERENCES employee(userID) ON DELETE 
+CASCADE 
+);
+
+DROP TABLE IF EXISTS user_favorite_genres; 
+CREATE TABLE user_favorite_genres(
+userID VARCHAR(200),
+favorite_genre VARCHAR(200),
+PRIMARY KEY(userId, favorite_genre),
+FOREIGN KEY (userID) REFERENCES customer(userID) ON DELETE 
+CASCADE 
+);
+
+DROP TABLE IF EXISTS movie_directors; 
+CREATE TABLE movie_directors(
+movieID VARCHAR(200),
+movie_director VARCHAR(200),
+PRIMARY KEY(movieID,movie_director),
+FOREIGN KEY (movieID) REFERENCES movie(movieID) ON DELETE 
+CASCADE 
+);
+
+DROP TABLE IF EXISTS movie_genres; 
+CREATE TABLE movie_genres(
+movieID VARCHAR(200),
+movie_genre VARCHAR(200),
+PRIMARY KEY(movieID, movie_genre),
+FOREIGN KEY(movieID) REFERENCES movie(movieID) ON DELETE 
+CASCADE
+);
+
+DROP TABLE IF EXISTS movie_award; 
+CREATE TABLE movie_award(
+movieID VARCHAR(200),
+movie_award VARCHAR(200),
+PRIMARY KEY(movieID , movie_award),
+FOREIGN KEY(movieID) REFERENCES movie(movieID) ON DELETE 
+CASCADE );
+
+DROP TABLE IF EXISTS movie_actors; 
+CREATE TABLE movie_actors(
+movieID VARCHAR(200),
+movie_actor VARCHAR(200),
+PRIMARY KEY(movieID , movie_actor),
+FOREIGN KEY(movieID) REFERENCES movie(movieID) ON DELETE 
+CASCADE
+);
+
+DROP TABLE IF EXISTS adds_friend; 
+CREATE TABLE adds_friend(
+userID VARCHAR(200),
+friendID VARCHAR(200),
+PRIMARY KEY(userID , friendID),
+FOREIGN KEY(userID) REFERENCES customer(userID)ON DELETE CASCADE,
+FOREIGN KEY(friendID) REFERENCES customer(userID) ON DELETE 
+CASCADE
+);
+
+DROP TABLE IF EXISTS deletes; 
+CREATE TABLE deletes(
+customerID VARCHAR(200),
+employeeID VARCHAR(200),
+PRIMARY KEY(customerID),
+FOREIGN KEY(customerID) REFERENCES customer(userID) ON DELETE 
+CASCADE,
+FOREIGN KEY(employeeID) REFERENCES employee(userID) ON DELETE 
+CASCADE
+);
+
+DROP TABLE IF EXISTS includes_movie; 
+CREATE TABLE includes_movie(
+listID VARCHAR(200),
+movieID VARCHAR(200),
+PRIMARY KEY(listID,movieID),
+FOREIGN KEY(listID) REFERENCES list_user(listID) ON DELETE CASCADE,
+FOREIGN KEY(movieID) REFERENCES movie(movieID) ON DELETE 
+CASCADE
+);
+
+DROP TABLE IF EXISTS review_movie; 
+CREATE TABLE review_movie(
+reviewID VARCHAR(200),
+movieID VARCHAR(200),
+userID VARCHAR(200),
+PRIMARY KEY(reviewID),
+FOREIGN KEY(reviewID) REFERENCES movie_review(reviewID) ON DELETE 
+CASCADE,
+FOREIGN KEY(userID) REFERENCES customer(userID) ON DELETE 
+CASCADE,
+FOREIGN KEY(movieID) REFERENCES movie(movieID) ON DELETE 
+CASCADE
+);
+
+DROP TABLE IF EXISTS rent_movie; 
+CREATE TABLE rent_movie(
+purchaseID VARCHAR(200),
+movieID VARCHAR(200),
+userID VARCHAR(200),
+PRIMARY KEY(purchase_ID),
+FOREIGN KEY(purchase_ID) REFERENCES purchase(purchase_ID) ON DELETE 
+CASCADE,
+FOREIGN KEY(movieID) REFERENCES movie(movieID) ON DELETE 
+CASCADE,
+FOREIGN KEY(userID) REFERENCES customer(userID) ON DELETE CASCADE
+);
+
+DROP TABLE IF EXISTS recommend_movie; 
+CREATE TABLE recommend_movie(
+recommendationID VARCHAR(200),
+movieID VARCHAR(200),
+userID VARCHAR(200),
+PRIMARY KEY(recommendationID),
+FOREIGN KEY(recommendationID) REFERENCES 
+movie_recomendation(recommendationID)ON DELETE CASCADE,
+FOREIGN KEY(userID) REFERENCES customer(userID)ON DELETE CASCADE,
+FOREIGN KEY(movieID) REFERENCES movie(movieID)ON DELETE 
+CASCADE
+);
+
+DROP TABLE IF EXISTS removes; 
+CREATE TABLE removes(
+movieID VARCHAR(200),
+userID VARCHAR(200),
+PRIMARY KEY(movieID),
+FOREIGN KEY(userID) REFERENCES employee(userID) ON DELETE 
+CASCADE,
+FOREIGN KEY(movieID) REFERENCES movie(movieID) ON DELETE 
+CASCADE
+);
+
