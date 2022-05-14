@@ -32,7 +32,7 @@
 	<div class="container">	
 		<h2 class= "title" style="color:#000;">Search Result for ' <?php echo $_POST['search'] ?> ' </h2>
 				
-			<?php $qry2=mysqli_query($con,"select DISTINCT movie_name,movie_id,image,from movie where movie_name='".$_POST['search']."'");			
+			<?php $qry2=mysqli_query($con,"select DISTINCT movie_name,movieID,image from movie where movie_name='".$_POST['search']."'");			
 				while($m = mysqli_fetch_array($qry2))
 				{ ?>
 							<div class = "image">
