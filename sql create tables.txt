@@ -181,7 +181,7 @@ CASCADE
 
 DROP TABLE IF EXISTS rent_movie; 
 CREATE TABLE rent_movie(
-purchaseID VARCHAR(200),
+purchase_ID VARCHAR(200),
 movieID VARCHAR(200),
 userID VARCHAR(200),
 PRIMARY KEY(purchase_ID),
