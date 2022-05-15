@@ -1,4 +1,7 @@
 <?php include('navbar.php');
+	$qry1=mysqli_query($con, "select * from movie where movieID='".$_GET['id']."'");
+	$movie=mysqli_fetch_array($qry1);
+
 	?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -90,6 +93,22 @@
         box-shadow: 3px 3px 6px #38373785;
     }
     h1{text-align: center;}
+    .anchor-button{
+        background:DodgerBlue;
+        padding: 15px;
+        border: none;
+        border-radius: 50px;
+        color: white;
+        font-weight: 400;
+        font-size: 1.2rem;
+        margin-top: 10px;
+        width:100%;
+        letter-spacing: .11rem;
+        outline:none;
+    }
+    .center-it{
+        text-align:center;
+    }
 
 	</style>
 </head>
@@ -112,7 +131,9 @@
                 <input type="password" class="inputbox" name="cvc" id="cvc" required />
             </div>
                 <p></p>
-                <button type="submit" class="button">RENT MOVIE!</button>
+                <div class="center-it">
+                    <a class="anchor-button" href="about_movie_rented.php?id=<?php echo $movie['movieID'];?>" target="_self">RENT MOVIE!</a>
+                </div>
             </form>
             </div>
         </div>

@@ -20,8 +20,6 @@
 	$qry10=mysqli_query($con, "select U.username
 							from review_movie R, movie_review R2, user_tbl U, customer C
 							where R.userID=C.userID AND R2.reviewID=R.reviewID AND U.userID=C.userID");
-
-	
 	
 
 	$movie=mysqli_fetch_array($qry2);
@@ -134,9 +132,9 @@
 		.btn:hover {
 			background-color: RoyalBlue;
 		}
-		.anchor-button{
+		.watch-button{
 			border-radius: 50px;
-			background-color: DodgerBlue;
+			background-color: red;
 			border: none; 
 			color: white;
 			padding: 12px 16px; 
@@ -168,11 +166,13 @@
 				<p class="about-p" style="font-size:15px"><b>Awards : </b><?php echo $movie_award['movie_award']; ?></p>
 				<div class="buttons-container">
 					<div class="two-three-buttons">
-						<a class="anchor-button" href="rent_movie.php?id=<?php echo $movie['movieID'];?>" target="_self">Rent Movie</a>
+						<a class="watch-button" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_self">Watch Movie</a>
 						<button type="button" class="btn"><i class="fas fa-thumbs-up"></i></button>
 					</div>
 					<br>
 					<button type="button" class="btn">Recommend Movie to a Friend!</button>
+                    <br><br>
+                    <button type="button review-btn" class="btn">Rate&Review</button>
 				</div>
 			</div>
 		</div>
