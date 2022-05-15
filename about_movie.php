@@ -121,6 +121,7 @@
 			align-items: center;
 		}
 		.btn {
+			border-radius: 50px;
 			background-color: DodgerBlue;
 			border: none; 
 			color: white;
@@ -130,6 +131,15 @@
 		}
 		.btn:hover {
 			background-color: RoyalBlue;
+		}
+		.anchor-button{
+			border-radius: 50px;
+			background-color: DodgerBlue;
+			border: none; 
+			color: white;
+			padding: 12px 16px; 
+			font-size: 16px; 
+			cursor: pointer; 
 		}
 	</style>
 </head>
@@ -156,7 +166,7 @@
 				<p class="about-p" style="font-size:15px"><b>Awards : </b><?php echo $movie_award['movie_award']; ?></p>
 				<div class="buttons-container">
 					<div class="two-three-buttons">
-						<button type="button" class="btn">Rent Movie</button>
+						<a class="anchor-button" href="rent_movie.php" target="_self">Rent Movie</a>
 						<button type="button" class="btn"><i class="fas fa-thumbs-up"></i></button>
 					</div>
 					<br>
