@@ -32,6 +32,7 @@
 <html lang="en" dir="ltr">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <head>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<style type="text/css">
 		.image{
 			float:left;	
@@ -54,7 +55,7 @@
 			overflow:auto;
 		}
 		.poster {
-			width: 40.2%;
+			width: 60.2%;
 			max-width:100%;
   			float: left;
 			display:block;
@@ -107,6 +108,29 @@
 			top: 0;
 			transition: all .1s ease-in;
 		}
+		.buttons-container{
+			position:relative;
+			width: 100%;
+			display: block;
+			float: right;
+			margin: 0% 0 0% 2.6%;
+		}
+		.two-three-buttons{
+			display: block;
+			flex-direction: column;
+			align-items: center;
+		}
+		.btn {
+			background-color: DodgerBlue;
+			border: none; 
+			color: white;
+			padding: 12px 16px; 
+			font-size: 16px; 
+			cursor: pointer; 
+		}
+		.btn:hover {
+			background-color: RoyalBlue;
+		}
 	</style>
 </head>
 <body>
@@ -130,11 +154,21 @@
 				<p class="about-p" style="font-size:15px"><b>Description : </b><?php echo nl2br($movie['movie_desc']); ?></p>
 				<p class="about-p" style="font-size:15px"><b>Genre : </b><?php echo $movie_genres['movie_genre']; ?></p>
 				<p class="about-p" style="font-size:15px"><b>Awards : </b><?php echo $movie_award['movie_award']; ?></p>
+				<div class="buttons-container">
+					<div class="two-three-buttons">
+						<button type="button" class="btn">Rent Movie</button>
+						<button type="button" class="btn"><i class="fas fa-thumbs-up"></i></button>
+					</div>
+					<br>
+					<button type="button" class="btn">Recommend Movie to a Friend!</button>
+				</div>
 			</div>
 		</div>
-		<div class="clear"></div>
+
+		<br>
 		<div class="mov_review_info">
 			<div class = "reviews">
+				<br>
 				<h3 class="reviews" >Reviews </h3>
 				<div class="review-style">			
 					<?php
