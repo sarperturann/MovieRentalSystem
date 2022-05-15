@@ -147,6 +147,27 @@ border-radius: 15%;
 </style>
 </head>
   <body>
+
+  <?php
+    $sql = 'SELECT * FROM user_tbl';
+    $result = mysqli_query($con, $sql);
+    $m = mysqli_fetch_array($result);
+?>
+
+
+  <?php
+    $sql2 = 'SELECT * FROM movie_review';
+    $result2 = mysqli_query($con, $sql2);
+    $m2 = mysqli_fetch_array($result2);
+    $m3 = mysqli_fetch_array($result2);
+?>
+
+<?php
+    $sql3 = 'SELECT * FROM movie';
+    $result3 = mysqli_query($con, $sql3);
+    $m4 = mysqli_fetch_array($result3);
+    $m5 = mysqli_fetch_array($result3);
+?>
   <div class="content">
 
 <?php include('navbar.php');?>
@@ -160,9 +181,9 @@ border-radius: 15%;
 
         <div class= 'UpperX'>
             <div class='Upper'>
-        
-        <p class='nameU'>
-            UserName
+            
+        <p class='nameU' >
+        <?php echo $m['username'];?>
         </p>
         <button class='BlueButton'>
        
@@ -195,30 +216,32 @@ border-radius: 15%;
             <div class='reviewBox'>
            <div class='reviewUp'>
                <div class='revName'>
-                    Woman In Gold
+               <?php echo $m4['movie_name'];?>
                </div>
                <div class='rating'>
-                    5
+               <?php echo $m2['review_rating'];?>
+               / 5
                </div>
 
            </div>
            <div class='reviewDesc'>
-                Best Movie Ever
+           <?php echo $m2['review_comment'];?>
            </div>
             </div>
 
             <div class='reviewBox'>
            <div class='reviewUp'>
                <div class='revName'>
-                    Tintin
+               <?php echo $m5['movie_name'];?>
                </div>
                <div class='rating'>
-                    2
+               <?php echo $m3['review_rating'];?>
+               / 5
                </div>
 
            </div>
            <div class='reviewDesc'>
-                No
+           <?php echo $m3['review_comment'];?>
            </div>
             </div>
 
