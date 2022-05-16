@@ -40,7 +40,7 @@
                     ?>
 						<div class = "image">
 							<div><a href="about_movie.php?id=<?php echo $m['movieID'];?>"><img id = "pic" src="<?php echo $m['image'];?>"></a>
-							<a href="about_movie.php?id=<?php echo $m['movieID'];?>" ><?php echo $m['movie_name'];?></a></div>
+							<h3><a href="about_movie.php?id=<?php echo $m['movieID'];?>" ><?php echo $m['movie_name'];?></a> </h3></div>
 						</div>
 				
   	    		<?php } ?>

@@ -110,7 +110,7 @@
           </form> 	
 
           <a href="index.php"><i class="fa fa-home fa-lg"></i></a>        
-            <li><a href="#">UPCOMING</a></li>
+            <li><a href="upcoming_movies.php">UPCOMING</a></li>
             <li><a href="#">LISTS</a></li>
             <li><a href="#">SOCIAL</a></li>
             <li>
