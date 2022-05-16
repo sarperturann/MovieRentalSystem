@@ -109,20 +109,24 @@ border-radius: 15%;
             
         $sql = 'SELECT * FROM list_user INNER JOIN includes_movie INNER JOIN movie';
 
-        $sql2 = 'SELECT DISTINCT list_name FROM list_user INNER JOIN includes_movie INNER JOIN movie';
+        $sql2 = 'SELECT DISTINCT list_name FROM list_user NATURAL JOIN includes_movie NATURAL JOIN movie';
 
 
-        $sql3 = 'SELECT DISTINCT movie_name FROM list_user JOIN includes_movie JOIN movie';
 
           	$qry2 = mysqli_query($con,$sql);
                         
              $qry3 = mysqli_query($con,$sql2);
 
-             $qry4 = mysqli_query($con,$sql3);
+             $m = mysqli_fetch_array($qry3);
 
-          	while($m = mysqli_fetch_array($qry3))
+           
+
+          	do
                 {
-                    $m2 = mysqli_fetch_array($qry2)
+                    $qry4=mysqli_query($con, "SELECT movie_name FROM list_user NATURAL JOIN includes_movie NATURAL JOIN movie
+                    WHERE list_name ='".$m['list_name']."'");
+           $m2 = mysqli_fetch_array($qry2)
+
                     ?>
                     <div class= "listWrapper">
                         <a class= listTitlem>
@@ -200,7 +204,8 @@ border-radius: 15%;
                             </div>
 						
                     </div>
-                  <?php } ?>
+                  <?php }
+                  while($m = mysqli_fetch_array($qry3)) ?>
                   
                   
             </div>
