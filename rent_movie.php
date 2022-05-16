@@ -1,4 +1,5 @@
 <?php include('navbar.php');
+ 
 	$qry1=mysqli_query($con, "select * from movie where movieID='".$_GET['id']."'");
 	$movie=mysqli_fetch_array($qry1);
 
@@ -116,7 +117,7 @@
     <div class="mainscreen">
         <div class="card">
             <div class="middle">
-            <form action="">
+            <form action="about_movie_rented.php?id=<?php echo $movie['movieID'];?>" method="post">
                 <h1>Payment</h1>
                 <h2>Payment Information</h2>
                 <p>Cardholder Name</p>
@@ -132,7 +133,7 @@
             </div>
                 <p></p>
                 <div class="center-it">
-                    <a class="anchor-button" href="about_movie_rented.php?id=<?php echo $movie['movieID'];?>" target="_self">RENT MOVIE!</a>
+                    <button class="anchor-button" target="_self">RENT MOVIE!</button>
                 </div>
             </form>
             </div>

@@ -1,4 +1,27 @@
 <?php include('navbar.php');
+	$purchase_id = rand();
+
+	if(isset($_POST['name']) & isset($_POST['card_number']) & isset($_POST['exp_date']) & isset($_POST['cvc'])){
+			
+        $insert = "INSERT INTO purchase (purchase_ID, purchase_date, purchase_expiration_date, purchase_price) VALUES ('$purchase_id', '1', '1', '1')";
+
+        if(mysqli_query($con,$insert)){
+            echo "Succesful insert";
+        }
+        else{
+            echo "insertion failed";
+        }
+
+        $insert2 = "INSERT INTO rent_movie (purchase_ID, movieID, userID) VALUES ('$purchase_id', '".$_GET['id']."' ,'1')";
+
+        if(mysqli_query($con,$insert2)){
+            echo "Succesful insert2";
+        }
+        else{
+            echo "insertion failed";
+        }
+    }
+
 	$qry2=mysqli_query($con, "select * from movie where movieID='".$_GET['id']."'");
 	$qry3=mysqli_query($con, "select * from movie_actors where movieID='".$_GET['id']."'");
 	$qry4=mysqli_query($con, "select * from movie_directors where movieID='".$_GET['id']."'");
@@ -26,6 +49,9 @@
 	$movie_directors=mysqli_fetch_array($qry4);
 	$movie_award=mysqli_fetch_array($qry5);
 	$movie_genres=mysqli_fetch_array($qry6);
+
+	$qry777 =mysqli_query($con, "select * from rent_movie");
+
 
 	?>
 <!DOCTYPE html>
