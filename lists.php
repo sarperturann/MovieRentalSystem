@@ -21,7 +21,7 @@ include'config.php';
 			margin:auto;
 			overflow:auto;
             display:flex;
-           
+            flex-direction: column;
 		}
 
         .listWrapper{
@@ -33,6 +33,13 @@ include'config.php';
 
         .listTitle{
             display:flex;
+            font-size: 16px; 
+            color:teal;
+            text-shadow: 2px 2px teal;
+            font-size: 35px;
+            line-height: 72px;
+            margin-left: 60px;
+            font-weight: bold;
         }
 
         .listMovies{
@@ -42,11 +49,24 @@ include'config.php';
         .listObj{
             display:flex;
             border: 1px solid #B7C8D5;
-            width: 50px;
-            height:50px;
+            width: 100px;
+            height:100px;
             box-sizing: border-box;
             border-radius: 1px;
         }
+        .btn {
+			border-radius: 50px;
+			background-color: DodgerBlue;
+			border: none; 
+			color: white;
+			padding: 12px 16px; 
+      margin: 200px;
+			font-size: 16px; 
+			cursor: pointer; 
+		}
+		.btn:hover {
+			background-color: RoyalBlue;
+		}
 
         .createNewList{
             color:#E5E5E5;
@@ -61,6 +81,13 @@ font-size: 15px;
 line-height: 24px;
 border-radius: 15%;
         }
+
+        .listTitlem{
+       margin:1px;
+       font:bold;
+       color : black;
+       font-size: large;
+        }
 	</style>
 </head>
   <body>
@@ -70,38 +97,100 @@ border-radius: 15%;
 
 </div>
 			<div class="container">	
-			<?php
-        
-          	$qry2 = mysqli_query($con,"select * from movie order by rand()");
-						
-          	while($m = mysqli_fetch_array($qry2))
+            <div class = "listTitle">
+                            LISTS
+                            </div>
+
+            <?php
+            
+        $sql = 'SELECT * FROM list_user INNER JOIN includes_movie INNER JOIN movie';
+
+        $sql2 = 'SELECT DISTINCT list_name FROM list_user INNER JOIN includes_movie INNER JOIN movie';
+
+
+        $sql3 = 'SELECT DISTINCT movie_name FROM list_user JOIN includes_movie JOIN movie';
+
+          	$qry2 = mysqli_query($con,$sql);
+                        
+             $qry3 = mysqli_query($con,$sql2);
+
+             $qry4 = mysqli_query($con,$sql3);
+
+          	while($m = mysqli_fetch_array($qry3))
                 {
+                    $m2 = mysqli_fetch_array($qry2)
                     ?>
                     <div class= "listWrapper">
-						<div class = "listTitle">
-                            Rented Movies
-                            </div>
+                        <a class= listTitlem>
+                    <?php echo $m2['list_name'];?>
+                    </a>
                             <div class="listMovies">
                                 <div class="listObj">
-                                film1
+
+                                <?php
+                                  $m3 = mysqli_fetch_array($qry4)?>
+
+                                  <?php
+                                   echo $m3['movie_name'];?>
+
                                 </div>
+
                                 <div class="listObj">
-                                film2
+
+                                <?php
+                                  $m3 = mysqli_fetch_array($qry4)?>
+
+                                  <?php
+                                   echo $m3['movie_name'];?>
+
                                 </div>
+
+                               
                                 <div class="listObj">
-                                film3
+                                <?php
+                                  $m3 = mysqli_fetch_array($qry4)?>
+
+                                  <?php
+                                   echo $m3['movie_name'];?>
+
                                 </div>
+
+                                
                                 <div class="listObj">
-                                film4
+                                <?php
+                                  $m3 = mysqli_fetch_array($qry4)?>
+
+                                  <?php
+                                   echo $m3['movie_name'];?>
+
                                 </div>
+                                
                                 <div class="listObj">
-                                film5
+                                <?php
+                                  $m3 = mysqli_fetch_array($qry4)?>
+
+                                  <?php
+                                   echo $m3['movie_name'];?>
+
                                 </div>
+                               
                                 <div class="listObj">
-                                film6
+                                <?php
+                                  $m3 = mysqli_fetch_array($qry4)?>
+
+                                  <?php
+                                   echo $m3['movie_name'];?>
+
                                 </div>
+                         
                                 <div class="listObj">
-                                film7
+                                <?php
+                                  $m3 = mysqli_fetch_array($qry4)?>
+
+                                  <?php
+                                   echo $m3['movie_name'];?>
+
+                                </div>
                                 </div>
 
                             </div>
@@ -112,9 +201,9 @@ border-radius: 15%;
                   
             </div>
             
-            <button class= createNewList>
+            <a class= btn href="create_list.php" target="_self">
                         CREATE A NEW LIST
-                  </button>
+                </a>
 			
 	</body>	
 			
