@@ -27,6 +27,7 @@ if(!isset($_SESSION['user']))
 			overflow:auto;
             display:flex;
             flex-direction: column;
+            margin :10px;
 		}
 
         .listWrapper{
@@ -98,6 +99,7 @@ border-radius: 15%;
   <body>
   <div class="content">
 
+<?php include('navbar.php');?>
 
 </div>
 			<div class="container">	
@@ -138,8 +140,7 @@ border-radius: 15%;
                                 <?php
                                   $m3 = mysqli_fetch_array($qry4)?>
 
-                                  <?php
-                                   echo $m3['movie_name'];?>
+                    <img id = "pic" src="<?php echo $m3['image']; ?>" alt=""/> 
 
                                 </div>
 
@@ -148,8 +149,7 @@ border-radius: 15%;
                                 <?php
                                   $m3 = mysqli_fetch_array($qry4)?>
 
-                                  <?php
-                                   echo $m3['movie_name'];?>
+                        <img id = "pic" src="<?php echo $m3['image']; ?>" alt=""/> 
 
                                 </div>
 
@@ -157,9 +157,7 @@ border-radius: 15%;
                                 <div class="listObj">
                                 <?php
                                   $m3 = mysqli_fetch_array($qry4)?>
-
-                                  <?php
-                                   echo $m3['movie_name'];?>
+                        <img id = "pic" src="<?php echo $m3['image']; ?>" alt=""/> 
 
                                 </div>
 
@@ -168,8 +166,8 @@ border-radius: 15%;
                                 <?php
                                   $m3 = mysqli_fetch_array($qry4)?>
 
-                                  <?php
-                                   echo $m3['movie_name'];?>
+                                <img id = "pic" src="<?php echo $m3['image']; ?>" alt=""/> 
+
 
                                 </div>
                                 
@@ -177,8 +175,8 @@ border-radius: 15%;
                                 <?php
                                   $m3 = mysqli_fetch_array($qry4)?>
 
-                                  <?php
-                                   echo $m3['movie_name'];?>
+                                <img id = "pic" src="<?php echo $m3['image']; ?>" alt=""/>  
+
 
                                 </div>
                                
@@ -186,8 +184,8 @@ border-radius: 15%;
                                 <?php
                                   $m3 = mysqli_fetch_array($qry4)?>
 
-                                  <?php
-                                   echo $m3['movie_name'];?>
+                                <img id = "pic" src="<?php echo $m3['image']; ?>" alt=""/> 
+
 
                                 </div>
                          
@@ -195,19 +193,19 @@ border-radius: 15%;
                                 <?php
                                   $m3 = mysqli_fetch_array($qry4)?>
 
-                                  <?php
-                                   echo $m3['movie_name'];?>
+                                <img id = "pic" src="<?php echo $m3['image']; ?>" alt=""/> 
+
 
                                 </div>
                                 </div>
 
                             </div>
 						
-                    </div>
+                  
                   <?php }
                   while($m = mysqli_fetch_array($qry3)) ?>
                   
-                  
+                  </div>
             </div>
             
             <a class= btn href="create_list.php" target="_self">
