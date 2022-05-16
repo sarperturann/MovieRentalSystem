@@ -1,4 +1,9 @@
-<?php include('navbar.php'); ?>
+<?php include('navbar.php'); 
+	if(!isset($_SESSION['user']))
+	{
+		header('location:login.php');
+	}
+	?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />

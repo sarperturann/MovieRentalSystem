@@ -1,4 +1,8 @@
 <?php include('navbar.php');
+	if(!isset($_SESSION['user']))
+	{
+		header('location:login.php');
+	}
  
 	$qry1=mysqli_query($con, "select * from movie where movieID='".$_GET['id']."'");
 	$movie=mysqli_fetch_array($qry1);

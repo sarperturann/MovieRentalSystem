@@ -1,4 +1,9 @@
 <?php include('navbar.php'); 
+	session_start();
+	if(!isset($_SESSION['user']))
+	{
+		header('location:login.php');
+	}
 
 $query1=mysqli_query($con,"	(select DISTINCT *
                             from movie NATURAL JOIN movie_actors NATURAL JOIN movie_award NATURAL JOIN movie_directors NATURAL JOIN movie_genres

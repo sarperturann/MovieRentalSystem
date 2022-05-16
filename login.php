@@ -35,12 +35,10 @@ h1{
   background:#ecf0f1;
   border: #ccc 1px solid;
   border-bottom: #ccc 2px solid;
-  padding: 8px;
+  padding: 4px;
   width:250px;
   color:#AAAAAA;
-  margin-top:10px;
   font-size:1em;
-  border-radius:4px;
 }
 
 .password{
@@ -81,23 +79,31 @@ h1{
 .btn2:hover{ 
     background:#fe68fe; 
 }
+h3{
+    color:#525252;
+    font-size:0.8rem;
+    display:inline-block;
+    padding:1px 10px;
+}
 	</style>
 </head>
 <body>
 <link href='https://fonts.googleapis.com/css?family=Open+Sans:700,600' rel='stylesheet' type='text/css'>
 <form method="post" action="login_form.php">
-<div class="box">
-<h1>Login</h1>
-<input type="email" name="email" value="email" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" />
-<input type="password" name="email" value="email" onFocus="field_focus(this, 'email');" onblur="field_blur(this, 'email');" class="email" />
-<br>
-<br>
-<a href="#"><div class="btn">Sign In</div></a> 
-<br>
-<br>
-<a href="#"><div class="btn2">Sign Up</div></a> 
-<p style="color:black">Forgot your password? <u style="color:#fe68fe;">Click Here!</u></p>
-</div> 
+    <div class="box">
+        <h1>Login</h1>
+        <h3 style="float:left">Email or Username:</h3>
+        <input name="Email" type="text" size="25" placeholder="email or username" class="email"/>
+        <h3 style="float:left">Password:</h3>
+        <input name="Password" type="password" size="25" placeholder="password" class="password"/>
+        <br>
+        <br>
+        <button type="submit" class="btn">Login</button>
+        <br>
+        <br>
+        <button type="submit" class="btn2">Sign Up</button>
+        <p style="color:black">Forgot your password? <u style="color:#fe68fe;">Click Here!</u></p>
+    </div> 
 </form>
 </body>
   

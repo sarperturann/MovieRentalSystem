@@ -1,7 +1,7 @@
 <?php
-    $username = 'ÖYKÜ';
-    $_SESSION['sname'] = $username;
+  session_start(); 
     include('config.php');
+    $userID = $_SESSION['user'];
 ?>
 
 <!DOCTYPE html>
@@ -114,7 +114,7 @@
             <li><a href="lists.php">LISTS</a></li>
             <li><a href="#">SOCIAL</a></li>
             <li>
-               <a href="#"><i class="fa fa-user"></i> <?php echo htmlspecialchars($_SESSION['sname']);?> </a>
+               <a href="#"><i class="fa fa-user"></i> <?php echo htmlspecialchars($_SESSION['userName']);?> </a>
                <ul>
                   <li><a href="profile.php">Profile</a></li>
                   <li><a href="#">LogOut</a></li>

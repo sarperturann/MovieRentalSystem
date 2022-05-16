@@ -1,5 +1,10 @@
 <?php
 include'config.php';
+include('navbar.php');
+if(!isset($_SESSION['user']))
+{
+    header('location:login.php');
+}
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -93,7 +98,6 @@ border-radius: 15%;
   <body>
   <div class="content">
 
-<?php include('navbar.php');?>
 
 </div>
 			<div class="container">	

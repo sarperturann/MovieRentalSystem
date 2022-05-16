@@ -1,5 +1,10 @@
 <?php
 include('config.php');
+include('navbar.php');
+if(!isset($_SESSION['user']))
+{
+	header('location:login.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +23,7 @@ include('config.php');
     
     <div class="content">
 
-        <?php include('navbar.php');?>
+        <?php ?>
 
     </div>
     <div class="content">

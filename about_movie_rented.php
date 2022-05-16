@@ -1,4 +1,8 @@
 <?php include('navbar.php');
+	if(!isset($_SESSION['user']))
+	{
+		header('location:login.php');
+	}
 	$purchase_id = rand();
 
 	if(isset($_POST['name']) & isset($_POST['card_number']) & isset($_POST['exp_date']) & isset($_POST['cvc'])){

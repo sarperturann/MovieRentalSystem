@@ -12,6 +12,7 @@ if(mysqli_num_rows($qry))
     //{
         // customer logged in
         $_SESSION['user']=$user['userID'];
+        $_SESSION['userName'] = $user['username'];
         if(isset($_SESSION['user']))
         {
             header('location:index.php');
