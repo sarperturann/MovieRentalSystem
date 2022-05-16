@@ -121,26 +121,25 @@ border-radius: 15%;
 
  .nameU{
     text-align: center;
-margin: auto 20px 17px auto;
-font-style: normal;
-font-weight: 500;
-font-size: 30px;
-line-height: 24px;
-color: #0A0A0A;
+    margin: auto 20px 17px auto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 24px;
+    color: #0A0A0A;
  }
 
  .reviewsWrapper{
-display:flex;
-margin:50px;
-flex-direction: column;
+    display:flex;
+    margin:50px;
+    flex-direction: column;
  }
 
  .reviewBox{
-
-border: 1px solid #B7C8D5;
-box-sizing: border-box;
-border-radius: 4px;
-margin:7px;
+    border: 1px solid #B7C8D5;
+    box-sizing: border-box;
+    border-radius: 4px;
+    margin:7px;
  }
  .reviewUp{
     padding: 5px;
@@ -154,14 +153,14 @@ margin:7px;
      margin: 3px;
  }
 .reviewDesc{
-color:#292929;
-margin: 5px;
-width: 300px;
-font-style: normal;
-font-weight: 100;
-font-size: 15px;
-line-height: 24px;
-border-radius: 15%;
+    color:#292929;
+    margin: 5px;
+    width: 300px;
+    font-style: normal;
+    font-weight: 100;
+    font-size: 15px;
+    line-height: 24px;
+    border-radius: 15%;
 }
 
 
@@ -181,6 +180,11 @@ border-radius: 15%;
     $result2 = mysqli_query($con, $sql2);
     $m2 = mysqli_fetch_array($result2);
     $m3 = mysqli_fetch_array($result2);
+    $sq13= "SELECT * 
+            FROM movie_review MR, movie M, review_movie RM 
+            WHERE M.movieID = RM.movieID AND RM.reviewID=MR.reviewID AND RM.userID='".$_SESSION['user']."'";
+    
+    $result3 = mysqli_query($con, $sq13);
 ?>
   <div class="content">
 
@@ -196,7 +200,7 @@ border-radius: 15%;
             <div class='Upper'>
             
         <p class='nameU' >
-        <?php echo $m['username'];?>
+        <?php echo $_SESSION['userName'];?>
         </p>
         <a class='btn' href="" target="_self">
        
@@ -226,37 +230,27 @@ border-radius: 15%;
     <div class='reviewsWrapper'>  
             Reviews
 
-            <div class='reviewBox'>
-           <div class='reviewUp'>
-               <div class='revName'>
-               <?php echo $m2['movie_name'];?>
-               </div>
-               <div class='rating'>
-               <?php echo $m2['review_rating'];?>
-               / 5
-               </div>
-
-           </div>
-           <div class='reviewDesc'>
-           <?php echo $m2['review_comment'];?>
-           </div>
-            </div>
-
-            <div class='reviewBox'>
-           <div class='reviewUp'>
-               <div class='revName'>
-               <?php echo $m3['movie_name'];?>
-               </div>
-               <div class='rating'>
-               <?php echo $m3['review_rating'];?>
-               / 5
-               </div>
-
-           </div>
-           <div class='reviewDesc'>
-           <?php echo $m3['review_comment'];?>
-           </div>
-            </div>
+      <div class='reviewBox'>
+        <div class='reviewUp'>
+          <div class='revName'>
+            <?php      
+              while( $try = mysqli_fetch_array($result3)){    
+                      ?>
+                      <?php echo $try['movie_name'];?>
+                  </div>
+                  <div class='rating'>
+                      <?php echo $try['review_rating'];?>
+                      / 5
+                  </div>
+        
+                </div>
+                  <div class='reviewDesc'>
+                  <?php echo $try['review_comment'];?>
+                  </div>
+              </div>
+              <?php
+              }
+            ?>
 
     </div>
     

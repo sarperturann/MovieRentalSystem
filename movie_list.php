@@ -46,7 +46,6 @@
 
 			while(($m888 = mysqli_fetch_array($qry2)) == true)
                 {  
-					echo "hello1";
 					$qry3 = mysqli_query($con,"select * from movie NATURAL JOIN rent_movie order by movie_name ASC");
 					$moviePrinted = false;
 					while($m777 = mysqli_fetch_array($qry3) ){
