@@ -99,6 +99,21 @@ font-size: 15px;
 line-height: 24px;
 border-radius: 15%;
  }
+
+ .btn {
+			border-radius: 50px;
+			background-color: DodgerBlue;
+			border: none; 
+			color: white;
+			padding: 12px 16px; 
+      margin: 5px;
+			font-size: 16px; 
+			cursor: pointer; 
+		}
+		.btn:hover {
+			background-color: RoyalBlue;
+		}
+
  .nameU{
     text-align: center;
 margin: auto 20px 17px auto;
@@ -120,6 +135,7 @@ flex-direction: column;
 border: 1px solid #B7C8D5;
 box-sizing: border-box;
 border-radius: 4px;
+margin:7px;
  }
  .reviewUp{
     padding: 5px;
@@ -156,17 +172,10 @@ border-radius: 15%;
 
 
   <?php
-    $sql2 = 'SELECT * FROM movie_review';
+    $sql2 = 'SELECT * FROM movie_review INNER JOIN review_movie INNER JOIN movie';
     $result2 = mysqli_query($con, $sql2);
     $m2 = mysqli_fetch_array($result2);
     $m3 = mysqli_fetch_array($result2);
-?>
-
-<?php
-    $sql3 = 'SELECT * FROM movie';
-    $result3 = mysqli_query($con, $sql3);
-    $m4 = mysqli_fetch_array($result3);
-    $m5 = mysqli_fetch_array($result3);
 ?>
   <div class="content">
 
@@ -185,26 +194,26 @@ border-radius: 15%;
         <p class='nameU' >
         <?php echo $m['username'];?>
         </p>
-        <button class='BlueButton'>
+        <a class='btn' href="" target="_self">
        
       EDIT PROFILE
         
-        </button>
+        </a>
 
         </div>
 
         <div class='Meta'>
-        <button class='BlueButton'>
+        <a class='btn' href="" target="_self">
         EDIT FAVORITE GENRES
-        </button>
-        <button class='BlueButton'>
+        </a>
+        <a class='btn' href="social.php" target="_self">
             
         FRIENDS      
-        </button>
-       
-        <button class='BlueButton'>
+    </a >
+
+        <a class='btn' href="wallet.php" target="_self">
         WALLET
-        </button>
+      </a>
         </div>
 
         </div>
@@ -216,7 +225,7 @@ border-radius: 15%;
             <div class='reviewBox'>
            <div class='reviewUp'>
                <div class='revName'>
-               <?php echo $m4['movie_name'];?>
+               <?php echo $m2['movie_name'];?>
                </div>
                <div class='rating'>
                <?php echo $m2['review_rating'];?>
@@ -232,7 +241,7 @@ border-radius: 15%;
             <div class='reviewBox'>
            <div class='reviewUp'>
                <div class='revName'>
-               <?php echo $m5['movie_name'];?>
+               <?php echo $m3['movie_name'];?>
                </div>
                <div class='rating'>
                <?php echo $m3['review_rating'];?>
