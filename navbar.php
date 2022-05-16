@@ -117,7 +117,7 @@
                <a href="#"><i class="fa fa-user"></i> <?php echo htmlspecialchars($_SESSION['userName']);?> </a>
                <ul>
                   <li><a href="profile.php">Profile</a></li>
-                  <li><a href="#">LogOut</a></li>
+                  <li><a href="logout.php">LogOut</a></li>
                </ul>
             </li>
          </ul>
