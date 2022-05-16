@@ -76,16 +76,16 @@ if(!isset($_SESSION['user']))
 
         .createNewList{
             color:#E5E5E5;
-     background-color: #0093FF;
-     text-align: center;
-     padding: 3px 3px 3px 3px;
-     margin: 5px;
-     width: 170px;
-font-style: normal;
-font-weight: 100;
-font-size: 15px;
-line-height: 24px;
-border-radius: 15%;
+            background-color: #0093FF;
+            text-align: center;
+            padding: 3px 3px 3px 3px;
+            margin: 5px;
+            width: 170px;
+            font-style: normal;
+            font-weight: 100;
+            font-size: 15px;
+            line-height: 24px;
+            border-radius: 15%;
         }
 
         .listTitlem{
