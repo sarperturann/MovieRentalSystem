@@ -50,11 +50,9 @@
 					$qry3 = mysqli_query($con,"select * from movie NATURAL JOIN rent_movie order by movie_name ASC");
 					$moviePrinted = false;
 					while($m777 = mysqli_fetch_array($qry3) ){
-						echo "hello2";
 
 								if( $m888['movieID'] ==  $m777['movieID']){  
 									$moviePrinted = true;
-									echo "hello3";
 								?>
 										<div class = "image">
 											<div><a href="about_movie_rented.php?id=<?php echo $m888['movieID'];?>"><img id = "pic" src="<?php echo $m888['image'];?>"></a>
@@ -65,7 +63,7 @@
 								
 						}
 					
-					if(($moviePrinted != true)){ echo "hello4"; ?>
+					if(($moviePrinted != true)){ ?>
 												
 								<div class = "image">
 								<div><a href="about_movie.php?id=<?php echo $m888['movieID'];?>"><img id = "pic" src="<?php echo $m888['image'];?>"></a>
