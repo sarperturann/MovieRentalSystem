@@ -111,12 +111,12 @@
 
           <a href="index.php"><i class="fa fa-home fa-lg"></i></a>        
             <li><a href="upcoming_movies.php">UPCOMING</a></li>
-            <li><a href="#">LISTS</a></li>
+            <li><a href="lists.php">LISTS</a></li>
             <li><a href="#">SOCIAL</a></li>
             <li>
                <a href="#"><i class="fa fa-user"></i> <?php echo htmlspecialchars($_SESSION['sname']);?> </a>
                <ul>
-                  <li><a href="#">Profile</a></li>
+                  <li><a href="profile.php">Profile</a></li>
                   <li><a href="#">LogOut</a></li>
                </ul>
             </li>
