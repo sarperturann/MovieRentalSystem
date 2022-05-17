@@ -5,20 +5,17 @@
 			
         $insert = "INSERT INTO purchase (purchase_ID, purchase_date, purchase_expiration_date, purchase_price) VALUES ('$purchase_id', '1', '1', '1')";
 
-        if(mysqli_query($con,$insert)){
-            echo "Succesful insert";
-        }
-        else{
-            echo "insertion failed";
-        }
-
         $insert2 = "INSERT INTO rent_movie (purchase_ID, movieID, userID) VALUES ('$purchase_id', '".$_GET['id']."' ,'1')";
 
-        if(mysqli_query($con,$insert2)){
-            echo "Succesful insert2";
+        mysqli_query($con,$insert);
+
+		if(mysqli_query($con,$insert2)){
+            $message = "rent movie successful";
+			echo "<script type='text/javascript'>alert('$message');</script>";
         }
         else{
-            echo "insertion failed";
+			$message = "rent movie failed";
+			echo "<script type='text/javascript'>alert('$message');</script>";
         }
     }
 	$qry111=mysqli_query($con, "select *
@@ -34,10 +31,12 @@
         $update = "UPDATE movie_review SET review_rating = '".$_POST['filter6']."' WHERE '".$review_delete['movieID']."'= '".$_GET['id']."'";
 
         if(mysqli_query($con,$update)){
-            echo "Succesful update";
+            $message2 = "rating update successful";
+			echo "<script type='text/javascript'>alert('$message2');</script>";
         }
         else{
-            echo "insertion update";
+			$message2 = "rating update failed";
+			echo "<script type='text/javascript'>alert('$message2');</script>";
         }
 
     }
