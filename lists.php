@@ -97,11 +97,7 @@ if(!isset($_SESSION['user']))
 	</style>
 </head>
   <body>
-  <div class="content">
 
-<?php include('navbar.php');?>
-
-</div>
 			<div class="container">	
             <div class = "listTitle">
                             LISTS
@@ -140,7 +136,7 @@ if(!isset($_SESSION['user']))
                                 <?php
                                   $m3 = mysqli_fetch_array($qry4)?>
 
-                    <img id = "pic" src="<?php echo $m3['image']; ?>" alt=""/> 
+                    <img id = "pic" src="<?php echo $m3['image']; ?>"/> 
 
                                 </div>
 
@@ -149,7 +145,7 @@ if(!isset($_SESSION['user']))
                                 <?php
                                   $m3 = mysqli_fetch_array($qry4)?>
 
-                        <img id = "pic" src="<?php echo $m3['image']; ?>" alt=""/> 
+                        <img id = "pic" src="<?php echo $m3['image']; ?>" /> 
 
                                 </div>
 
@@ -157,7 +153,7 @@ if(!isset($_SESSION['user']))
                                 <div class="listObj">
                                 <?php
                                   $m3 = mysqli_fetch_array($qry4)?>
-                        <img id = "pic" src="<?php echo $m3['image']; ?>" alt=""/> 
+                        <img id = "pic" src="<?php echo $m3['image']; ?>" /> 
 
                                 </div>
 
