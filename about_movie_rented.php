@@ -20,15 +20,15 @@
     }
 	$qry111=mysqli_query($con, "select *
 							from review_movie NATURAL JOIN movie_review NATURAL JOIN movie
-							where movie.movieID ='".$_GET['id']."' AND review_movie.userID'".$_SESSION['user']."'");
+							where movie.movieID ='".$_GET['id']."' ");
 
-	$review_delete=mysqli_fetch_array($qry111);
+	$rate=mysqli_fetch_array($qry111);
 
 
 
 	if(isset($_POST['filter6']) ){
-			
-        $update = "UPDATE movie_review SET review_rating = '".$_POST['filter6']."' WHERE '".$review_delete['movieID']."'= '".$_GET['id']."' ";
+		if ( $update = "UPDATE movie_review SET review_rating = '".$_POST['filter6']."' WHERE '".$rate['reviewID']."'= movie_review.reviewID");
+      	{
 
         if(mysqli_query($con,$update)){
             $message2 = "rating update successful";
@@ -38,7 +38,7 @@
 			$message2 = "rating update failed";
 			echo "<script type='text/javascript'>alert('$message2');</script>";
         }
-
+		}
     }
 
 
@@ -62,7 +62,7 @@
 
 	$qry10=mysqli_query($con, "select U.username
 							from review_movie R, movie_review R2, user_tbl U, customer C
-							where R.userID=C.userID AND R2.reviewID=R.reviewID AND U.userID=C.userID");
+							where R.userID=C.userID AND R2.reviewID=R.reviewID AND U.userID=C.userID AND R.movieID='".$_GET['id']."'");
 	
 
 	$movie=mysqli_fetch_array($qry2);

@@ -20,10 +20,10 @@
 	$qry9=mysqli_query($con, "select R2.review_date
 							from review_movie R, movie_review R2
 							where R.movieID='".$_GET['id']."' AND R2.reviewID=R.reviewID");
-
+	
 	$qry10=mysqli_query($con, "select U.username
 							from review_movie R, movie_review R2, user_tbl U, customer C
-							where R.userID=C.userID AND R2.reviewID=R.reviewID AND U.userID=C.userID");
+							where R.userID=C.userID AND R2.reviewID=R.reviewID AND U.userID=C.userID AND R.movieID='".$_GET['id']."'");
 
 	
 	
