@@ -1,8 +1,4 @@
 <?php include('navbar.php');
-	if(!isset($_SESSION['user']))
-	{
-		header('location:login.php');
-	}
 	$purchase_id = rand();
 
 	if(isset($_POST['name']) & isset($_POST['card_number']) & isset($_POST['exp_date']) & isset($_POST['cvc'])){
@@ -25,6 +21,27 @@
             echo "insertion failed";
         }
     }
+	$qry111=mysqli_query($con, "select *
+							from review_movie NATURAL JOIN movie_review NATURAL JOIN movie
+							where movie.movieID ='".$_GET['id']."' ");
+
+	$review_delete=mysqli_fetch_array($qry111);
+
+
+
+	if(isset($_POST['filter6']) ){
+			
+        $update = "UPDATE movie_review SET review_rating = '".$_POST['filter6']."' WHERE '".$review_delete['movieID']."'= '".$_GET['id']."'";
+
+        if(mysqli_query($con,$update)){
+            echo "Succesful update";
+        }
+        else{
+            echo "insertion update";
+        }
+
+    }
+
 
 	$qry2=mysqli_query($con, "select * from movie where movieID='".$_GET['id']."'");
 	$qry3=mysqli_query($con, "select * from movie_actors where movieID='".$_GET['id']."'");
@@ -202,7 +219,20 @@
 					<br>
 					<button type="button" class="btn">Recommend Movie to a Friend!</button>
                     <br><br>
-                    <button type="button review-btn" class="btn">Rate&Review</button>
+					<form id="form" method="post">
+						<select name="filter6">
+						<option value="">---Select Rating---</option>
+						
+						<option value="1"><?php echo "1" ?> </option>
+						<option value="2"><?php echo "2" ?> </option>
+						<option value="3"><?php echo "3" ?> </option>
+						<option value="4"><?php echo "4" ?> </option>
+						<option value="5"><?php echo "5" ?></option>
+								
+						</select>   
+
+						<button class= "button" class="btn" type="submit" >Rate</button>
+						</form>	
 				</div>
 			</div>
 		</div>
