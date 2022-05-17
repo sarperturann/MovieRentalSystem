@@ -153,7 +153,7 @@ border-radius: 15%;
 }
 
 <?php
-    $sql2 = 'SELECT username FROM user_tbl NATURAL JOIN adds_friend ';
+    $sql2 = 'SELECT username FROM user_tbl ';
     $sql = 'SELECT * FROM user_tbl NATURAL JOIN adds_friend WHERE ';
     $result = mysqli_query($con, $sql2);
     $m = mysqli_fetch_array($result);

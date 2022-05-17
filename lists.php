@@ -134,62 +134,63 @@ if(!isset($_SESSION['user']))
                                 <div class="listObj">
 
                                 <?php
-                                  $m3 = mysqli_fetch_array($qry4)?>
+                                if( $m3 = mysqli_fetch_array($qry4))
+                                 
+                                 echo $m3['movie_name']; ?>
 
-                    <img id = "pic" src="<?php echo $m3['image']; ?>"/> 
 
                                 </div>
 
                                 <div class="listObj">
 
                                 <?php
-                                  $m3 = mysqli_fetch_array($qry4)?>
-
-                        <img id = "pic" src="<?php echo $m3['image']; ?>" /> 
+                                if( $m3 = mysqli_fetch_array($qry4))
+                                 
+                                 echo $m3['movie_name']; ?>
 
                                 </div>
 
                                
                                 <div class="listObj">
                                 <?php
-                                  $m3 = mysqli_fetch_array($qry4)?>
-                        <img id = "pic" src="<?php echo $m3['image']; ?>" /> 
+                                if( $m3 = mysqli_fetch_array($qry4))
+                                 
+                                 echo $m3['movie_name']; ?>
 
                                 </div>
 
                                 
                                 <div class="listObj">
                                 <?php
-                                  $m3 = mysqli_fetch_array($qry4)?>
-
-                                <img id = "pic" src="<?php echo $m3['image']; ?>" alt=""/> 
-
+                                if( $m3 = mysqli_fetch_array($qry4))
+                                 
+                                 echo $m3['movie_name']; ?>
 
                                 </div>
                                 
                                 <div class="listObj">
                                 <?php
-                                  $m3 = mysqli_fetch_array($qry4)?>
-
-                                <img id = "pic" src="<?php echo $m3['image']; ?>" alt=""/>  
+                                if( $m3 = mysqli_fetch_array($qry4))
+                                 
+                                 echo $m3['movie_name']; ?>
 
 
                                 </div>
                                
                                 <div class="listObj">
                                 <?php
-                                  $m3 = mysqli_fetch_array($qry4)?>
-
-                                <img id = "pic" src="<?php echo $m3['image']; ?>" alt=""/> 
+                                if( $m3 = mysqli_fetch_array($qry4))
+                                 
+                                 echo $m3['movie_name']; ?>
 
 
                                 </div>
                          
                                 <div class="listObj">
                                 <?php
-                                  $m3 = mysqli_fetch_array($qry4)?>
-
-                                <img id = "pic" src="<?php echo $m3['image']; ?>" alt=""/> 
+                                if( $m3 = mysqli_fetch_array($qry4))
+                                 
+                                 echo $m3['movie_name']; ?>
 
 
                                 </div>
