@@ -20,7 +20,7 @@
     }
 	$qry111=mysqli_query($con, "select *
 							from review_movie NATURAL JOIN movie_review NATURAL JOIN movie
-							where movie.movieID ='".$_GET['id']."' ");
+							where movie.movieID ='".$_GET['id']."' AND review_movie.userID'".$_SESSION['user']."'");
 
 	$review_delete=mysqli_fetch_array($qry111);
 
@@ -28,7 +28,7 @@
 
 	if(isset($_POST['filter6']) ){
 			
-        $update = "UPDATE movie_review SET review_rating = '".$_POST['filter6']."' WHERE '".$review_delete['movieID']."'= '".$_GET['id']."'";
+        $update = "UPDATE movie_review SET review_rating = '".$_POST['filter6']."' WHERE '".$review_delete['movieID']."'= '".$_GET['id']."' ";
 
         if(mysqli_query($con,$update)){
             $message2 = "rating update successful";
